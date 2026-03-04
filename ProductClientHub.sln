@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductClientHub.API", "ProductClientHub.API\ProductClientHub.API.csproj", "{3083756B-1334-487B-87EE-B7E290AD3E76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductClientHub.Communication", "ProductClientHub.Communication\ProductClientHub.Communication.csproj", "{C8CCDB51-06EE-4F09-9C95-330B0DF97308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductClientHub.Exceptions", "ProductClientHub.Exceptions\ProductClientHub.Exceptions.csproj", "{77656C71-0796-4D97-BA14-EF9E8BF33D52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3083756B-1334-487B-87EE-B7E290AD3E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3083756B-1334-487B-87EE-B7E290AD3E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3083756B-1334-487B-87EE-B7E290AD3E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3083756B-1334-487B-87EE-B7E290AD3E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8CCDB51-06EE-4F09-9C95-330B0DF97308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CCDB51-06EE-4F09-9C95-330B0DF97308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CCDB51-06EE-4F09-9C95-330B0DF97308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CCDB51-06EE-4F09-9C95-330B0DF97308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77656C71-0796-4D97-BA14-EF9E8BF33D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77656C71-0796-4D97-BA14-EF9E8BF33D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77656C71-0796-4D97-BA14-EF9E8BF33D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77656C71-0796-4D97-BA14-EF9E8BF33D52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
