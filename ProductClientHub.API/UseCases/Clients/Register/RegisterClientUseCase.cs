@@ -10,6 +10,11 @@ public class RegisterClientUseCase
         var validator = new RegisterClientValidator();
 
         var result = validator.Validate(request);
+
+        if (!result.IsValid)
+        {
+            throw new DivideByZeroException("Erro nos dados recebidos.");
+        }
         
         return new ResponseClientJson();
     }
