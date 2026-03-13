@@ -1,5 +1,6 @@
 using ProductClientHub.Communication.Requests;
 using ProductClientHub.Communication.Responses;
+using ProductClientHub.Exceptions.ExceptionsBase;
 
 namespace ProductClientHub.API.UseCases.Clients.Register;
 
@@ -13,7 +14,9 @@ public class RegisterClientUseCase
 
         if (!result.IsValid)
         {
-            throw new DivideByZeroException("Erro nos dados recebidos.");
+            var errors = result.Errors.Select(error => error.ErrorMessage).ToList();
+            
+            throw new ErrorOnValidationException(errors);
         }
         
         return new ResponseClientJson();
