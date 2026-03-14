@@ -1,3 +1,5 @@
+using ProductClientHub.API.Filters;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,7 +10,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
 // Config Swagger
-builder.Services.AddSwaggerGen(); 
+builder.Services.AddSwaggerGen();
+
+// Config filters
+builder.Services.AddMvc(option => option.Filters.Add(typeof(ExceptionFilter)));
 
 var app = builder.Build();
 
