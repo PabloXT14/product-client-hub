@@ -1,38 +1,35 @@
-using ProductClientHub.API.Entities;
 using ProductClientHub.API.Infrastructure;
 using ProductClientHub.API.UseCases.Clients.SharedValidator;
 using ProductClientHub.Communication.Requests;
-using ProductClientHub.Communication.Responses;
 using ProductClientHub.Exceptions.ExceptionsBase;
 
-namespace ProductClientHub.API.UseCases.Clients.Register;
+namespace ProductClientHub.API.UseCases.Clients.Update;
 
-public class RegisterClientUseCase
+public class UpdateClientUseCase
+
 {
-    public ResponseShortClientJson Execute(RequestClientJson request)
+    public void Execute(Guid clientId, RequestClientJson request)
     {
         Validate(request);
         
-        // Add client to database
         var dbContext = new ProductClientHubDbContext();
 
-        var entity = new Client
+        // FirstOrDefault returns null if not found instead of throwing an exception (to us handle the not found case)
+        var entity = dbContext.Clients.FirstOrDefault(client => client.Id == clientId);
+
+        if (entity is null)
         {
-            Name = request.Name,
-            Email = request.Email
-        };
+            throw new NotFoundException("Cliente não encontrado.");
+        }
         
-        dbContext.Clients.Add(entity); // Prepare query to add the client to the database
+        entity.Name = request.Name;
+        entity.Email = request.Email;
         
-        dbContext.SaveChanges(); // Save changes to database
+        dbContext.Clients.Update(entity);
         
-        return new ResponseShortClientJson
-        {
-            Id = entity.Id,
-            Name =  entity.Name,
-        };
+        dbContext.SaveChanges();
     }
-    
+
     private void Validate(RequestClientJson request)
     {
         var validator = new RequestClientValidator();
@@ -42,7 +39,7 @@ public class RegisterClientUseCase
         if (!result.IsValid)
         {
             var errors = result.Errors.Select(error => error.ErrorMessage).ToList();
-            
+
             throw new ErrorOnValidationException(errors);
         }
     }
